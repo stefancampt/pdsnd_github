@@ -10,7 +10,7 @@ ANALYSE_CITIES = ['chicago', 'new york', 'washington']
 
 ANALYSE_MONTHS = ['january', 'february', 'march', 'april', 'may', 'june']
 
-ANALYSE_DAYS = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+ANALYSE_DAYS = ['all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 
 def get_filters():
     """
