@@ -8,7 +8,7 @@ CITY_DATA = { 'chicago': 'chicago.csv',
 
 ANALYSE_CITIES = ['chicago', 'new york', 'washington']
 
-ANALYSE_MONTHS = ['january', 'february', 'march', 'april', 'may', 'june']
+ANALYSE_MONTHS = ['all', 'january', 'february', 'march', 'april', 'may', 'june']
 
 ANALYSE_DAYS = ['all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 
