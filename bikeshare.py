@@ -56,25 +56,25 @@ def load_data(city, month, day):
         df - Pandas DataFrame containing city data filtered by month and day
     """
     #print(city,month,day)
-           
+
     df = pd.read_csv(CITY_DATA[city]) #read df
-    
+
     df['Start Time'] = pd.to_datetime(df['Start Time']) #convert start time to datetime
-    
+
     df['month'] = df['Start Time'].dt.month
-    
+
     df['day of week'] = df['Start Time'].dt.weekday_name
-    
+
     df['hour'] = df['Start Time'].dt.hour
 
 
     month = ANALYSE_MONTHS.index(month) #filter by month
     df = df.loc[df['month'] == month] #generates new df
-    
-    
-    #day = ANALYSE_DAYS.index(day)   
+
+
+    #day = ANALYSE_DAYS.index(day)
     df = df.loc[df['day of week'] == day.title()]
-    
+
     return df
 
 
@@ -154,23 +154,23 @@ def user_stats(df):
     try:
         gender_count = df['Gender'].value_counts()
         print('How many genders:', gender_count)
-    
+
     except KeyError:
         print('Gender does not exist for your selected variable')
 
     # TO DO: Display earliest, most recent, and most common year of birth
     try:
         birthyear = df['Birth Year']
-        
+
         birthyear_earliest = birthyear.min()
         print('the earliest birth year =', birthyear_earliest)
 
         birthyear_recent = birthyear.max()
-        print('the most recent birth year:', birthyear_recent) 
+        print('the most recent birth year:', birthyear_recent)
 
         birthyear_common = birthyear.value_counts().idxmax()
         print('the most common birth year:', birthyear_common)
-        
+
     except KeyError:
         print('birth year does not exist for your selected variable')
 
@@ -183,12 +183,12 @@ def aks_view(df):
     print(df.head())
     start_loc = 0
     while True:
-        view_data = input('\nWould you like to view 5 row of trip data? yes or no?\n')
+        view_data = input('\nWould you like to view FIVE row of trip data? yes or no?\n')
         if view_data.lower() != 'yes':
             return
         start_loc = start_loc + 5
         print(df.iloc[start_loc:start_loc+5])
-	
+
 def main():
     while True:
         city, month, day = get_filters()
